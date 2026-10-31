@@ -1,0 +1,347 @@
+<title>dapur sak menawai ligkau</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Figtree:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: banana-leaf green hero band with a plate seen from above, then a menu that doubles as an order form, ending in a matching green footer. */
+:root{
+  --bg:#F1F5EC; --surface:#FFFFFF; --fg:#18271E; --muted:#56675C; --line:#D3DDCB; --field:#8FA397;
+  --hero:#1D4A38; --hero-fg:#F2F6EC; --hero-muted:#BBCFC1; --hero-line:rgba(242,246,236,.24);
+  --leaf:#2F7A57; --leaf-plate:#3C8F68; --leaf-vein:#5BAA83;
+  --sambal:#C0301C; --on-sambal:#FFFFFF; --kunyit:#E9B52B; --on-kunyit:#1B1604; --focus:#1B5FD1;
+  --display:'Alfa Slab One', Rockwell, 'Roboto Slab', Georgia, serif;
+  --body:'Figtree', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0D1913; --surface:#14251C; --fg:#E7EFE3; --muted:#9BB0A2; --line:#25392E; --field:#4F6B5B;
+    --hero:#163727; --leaf:#4AA17A; --leaf-plate:#2F7A57; --leaf-vein:#4FA37B;
+    --sambal:#FF7058; --on-sambal:#1C0A06; --focus:#8CB8FF; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0D1913; --surface:#14251C; --fg:#E7EFE3; --muted:#9BB0A2; --line:#25392E; --field:#4F6B5B;
+  --hero:#163727; --leaf:#4AA17A; --leaf-plate:#2F7A57; --leaf-vein:#4FA37B;
+  --sambal:#FF7058; --on-sambal:#1C0A06; --focus:#8CB8FF; color-scheme:dark;
+}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:16px;line-height:1.6}
+*{box-sizing:border-box}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--focus);outline-offset:2px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.in{max-width:1080px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;margin:0;text-wrap:balance}
+p{margin:0}
+ 
+/* hero */
+.hero{background:var(--hero);color:var(--hero-fg);padding-block:20px 36px}
+.top{display:flex;justify-content:space-between;align-items:center;gap:16px;margin-bottom:28px}
+.brand{font-family:var(--display);font-size:1.25rem;letter-spacing:.01em}
+.top a.nav{font-weight:700;text-decoration:none;border-bottom:2px solid var(--kunyit);padding-bottom:2px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:32px;align-items:center}
+.hero-grid>*{min-width:0}
+h1{font-size:clamp(2.1rem,6.4vw,3.7rem);line-height:1.08}
+.lead{margin-top:18px;max-width:46ch;color:var(--hero-muted);font-size:1.08rem}
+.cta{margin-top:26px;display:flex;flex-wrap:wrap;gap:12px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:6px;padding:12px 20px;cursor:pointer;text-decoration:none;display:inline-block;text-align:center;transition:background-color .15s}
+.btn-kunyit{background:var(--kunyit);color:var(--on-kunyit)}
+.btn-kunyit:hover{background:#F3C54A}
+.btn-sambal{background:var(--sambal);color:var(--on-sambal)}
+.btn-sambal:hover{filter:brightness(1.08)}
+.btn-line{background:transparent;color:var(--fg);border:1.5px solid var(--field)}
+.btn[disabled],.btn[aria-disabled="true"]{opacity:.45;cursor:not-allowed;filter:none}
+.plate{width:100%;max-width:420px;height:auto;justify-self:center;display:block}
+.facts{margin:34px 0 0;padding-top:20px;border-top:1px solid var(--hero-line);display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px 32px}
+.facts dt{font-size:.85rem;color:var(--hero-muted)}
+.facts dd{margin:2px 0 0;font-weight:700}
+ 
+/* menu */
+.menu{padding-block:56px 40px}
+h2{font-size:clamp(1.6rem,4.2vw,2.2rem);line-height:1.15}
+.sub{margin-top:10px;color:var(--muted);max-width:60ch}
+.group{margin-top:36px}
+.group h3{font-size:1.2rem;color:var(--leaf)}
+ul.items{list-style:none;margin:10px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:48px}
+ul.items>li{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
+.txt{min-width:0}
+.name{font-weight:700}
+.desc{color:var(--muted);font-size:.93rem}
+.buy{flex:none;display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.price{font-weight:700;font-variant-numeric:tabular-nums}
+.add{font:inherit;font-weight:700;background:transparent;color:var(--sambal);border:1.5px solid var(--sambal);border-radius:6px;padding:7px 14px;min-height:40px;cursor:pointer;transition:background-color .15s,color .15s}
+.add:hover{background:var(--sambal);color:var(--on-sambal)}
+.step{display:inline-flex;align-items:center;border:1.5px solid var(--sambal);border-radius:6px;color:var(--sambal)}
+.step button{font:inherit;font-size:1.25rem;line-height:1;width:40px;height:37px;background:transparent;color:inherit;border:0;cursor:pointer;border-radius:4px}
+.step button:hover{background:var(--sambal);color:var(--on-sambal)}
+.step span{min-width:28px;text-align:center;font-weight:700;color:var(--fg);font-variant-numeric:tabular-nums}
+ 
+/* order */
+.order-wrap{padding-block:8px 56px}
+.order{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:24px;display:grid;grid-template-columns:1fr 1fr;gap:32px}
+.order>*{min-width:0}
+.order h2{font-size:1.5rem}
+#lines{list-style:none;margin:14px 0 0;padding:0}
+#lines li{display:flex;justify-content:space-between;gap:16px;padding:8px 0;border-bottom:1px solid var(--line)}
+.num{font-variant-numeric:tabular-nums;white-space:nowrap}
+.empty{margin-top:14px;color:var(--muted)}
+.sum{display:flex;justify-content:space-between;gap:16px;margin-top:14px;font-weight:700;font-size:1.15rem}
+.note{margin-top:4px;color:var(--muted);font-size:.88rem}
+.fld{display:block;margin-bottom:14px}
+.fld span{display:block;font-weight:500;font-size:.92rem;margin-bottom:4px}
+.fld input,.fld select,.fld textarea{width:100%;font:inherit;color:var(--fg);background:var(--bg);border:1px solid var(--field);border-radius:6px;padding:10px 12px}
+.fld textarea{resize:vertical}
+.acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:6px}
+.status{margin-top:10px;min-height:1.6em;color:var(--muted);font-size:.92rem}
+ 
+/* story */
+.story{padding-block:8px 64px}
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.story-grid>*{min-width:0}
+.story p{margin-top:14px;max-width:52ch}
+.clock{margin:0;display:grid}
+.clock>div{display:grid;grid-template-columns:64px 1fr;gap:12px;padding:12px 0;border-bottom:1px solid var(--line)}
+.clock dt{font-weight:700;font-variant-numeric:tabular-nums;color:var(--leaf)}
+.clock dd{margin:0}
+ 
+/* footer */
+footer{background:var(--hero);color:var(--hero-fg);padding-block:36px 96px}
+.foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:24px 32px}
+.foot h3{font-size:1.2rem}
+.foot dt{font-size:.85rem;color:var(--hero-muted);margin-top:10px}
+.foot dd{margin:0;font-weight:500}
+.foot p{color:var(--hero-muted);margin-top:10px;max-width:36ch}
+ 
+/* order bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--hero);color:var(--hero-fg);
+  padding-top:12px;padding-bottom:calc(12px + env(safe-area-inset-bottom,0px));
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));
+  border-top:1px solid var(--hero-line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.bar b{font-variant-numeric:tabular-nums}
+.bar .tot{display:flex;gap:14px;align-items:baseline;flex-wrap:wrap}
+ 
+@media (max-width:760px){
+  .hero-grid,.order,.story-grid{grid-template-columns:1fr}
+  .plate{max-width:320px}
+  .order{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style>
+ 
+<header class="hero gut">
+  <div class="in">
+    <div class="top">
+      <span class="brand">Dapur sak Menawai</span>
+      <a class="nav" href="#menu">Lihat menu</a>
+    </div>
+    <div class="hero-grid">
+      <div>
+        <h1>Umpan agek angat, Rempah Pilih Kedirik.</h1>
+        <p class="lead">Masakan rumahan yang mulai dimasak sebelum matahari naik. Susun pesananmu di sini, kirim lewat WhatsApp, lalu ambil atau tunggu diantar.</p>
+        <div class="cta">
+          <a class="btn btn-kunyit" href="#menu">Pilih menu</a>
+          <a class="btn btn-line" style="color:var(--hero-fg);border-color:var(--hero-line)" href="#cerita">Dapur kami</a>
+        </div>
+      </div>
+      <svg class="plate" viewBox="0 0 400 400" role="img" aria-label="Piring berisi nasi, telur mata sapi, tempe goreng, sambal, dan lalapan di atas daun pisang">
+        <path d="M14 200C54 58 346 40 386 200C346 360 54 342 14 200Z" fill="var(--leaf-plate)"/>
+        <path d="M14 200H386" stroke="var(--leaf-vein)" stroke-width="3" fill="none"/>
+        <g stroke="var(--leaf-vein)" stroke-width="2" fill="none" stroke-linecap="round">
+          <path d="M70 200L96 108M120 200L150 82M270 200L300 84M320 200L344 112M70 200L96 292M120 200L150 318M270 200L300 316M320 200L344 288"/>
+        </g>
+        <circle cx="200" cy="200" r="132" fill="#FBFBF7"/>
+        <circle cx="200" cy="200" r="112" fill="none" stroke="#E4E7DC" stroke-width="3"/>
+        <circle cx="168" cy="188" r="50" fill="#FFFFFF" stroke="#DCE1D3" stroke-width="2"/>
+        <g fill="#ECEFE4"><ellipse cx="150" cy="170" rx="9" ry="3.5" transform="rotate(-30 150 170)"/><ellipse cx="176" cy="164" rx="9" ry="3.5" transform="rotate(20 176 164)"/><ellipse cx="190" cy="192" rx="9" ry="3.5" transform="rotate(-10 190 192)"/><ellipse cx="156" cy="202" rx="9" ry="3.5" transform="rotate(25 156 202)"/></g>
+        <path d="M232 138C250 124 290 132 292 160C294 190 262 196 244 188C226 180 218 152 232 138Z" fill="#FFFFFF" stroke="#DCE1D3" stroke-width="2"/>
+        <circle cx="262" cy="160" r="15" fill="#F2B01E"/><circle cx="257" cy="155" r="4" fill="#FBD56A"/>
+        <path d="M222 244C236 228 266 230 272 250C278 270 250 282 232 274C216 268 212 254 222 244Z" fill="#C0301C"/>
+        <circle cx="240" cy="250" r="4" fill="#E2553B"/><circle cx="256" cy="262" r="3.5" fill="#E2553B"/>
+        <g fill="#C9A46A" stroke="#A47F48" stroke-width="2"><rect x="128" y="246" width="44" height="26" rx="4" transform="rotate(-14 150 259)"/><rect x="138" y="276" width="44" height="26" rx="4" transform="rotate(8 160 289)"/></g>
+        <g fill="#D4E6AE" stroke="#7FA24B" stroke-width="2"><circle cx="112" cy="206" r="15"/><circle cx="130" cy="130" r="15"/></g>
+        <g fill="none" stroke="#9DBE6B" stroke-width="2"><circle cx="112" cy="206" r="8"/><circle cx="130" cy="130" r="8"/></g>
+        <ellipse cx="300" cy="226" rx="30" ry="20" fill="#F3D9A0" stroke="#D7B66C" stroke-width="2" transform="rotate(-20 300 226)"/>
+        <g fill="#E8C57F"><circle cx="292" cy="222" r="3"/><circle cx="306" cy="230" r="3"/><circle cx="312" cy="218" r="2.5"/></g>
+      </svg>
+    </div>
+    <dl class="facts">
+      <div><dt>Buka</dt><dd>Setiap hari, 07.00 sampai 16.00</dd></div>
+      <div><dt>Ngau Rempah Tengah Ari</dt><dd>Pesan sebelum jam 10.00</dd></div>
+      <div><dt>Anyong</dt><dd>Radius 3 km, ongkos Rp 5.000</dd></div>
+    </dl>
+  </div>
+</header>
+ 
+<main>
+<section class="menu gut" id="menu">
+  <div class="in">
+    <h2>Menu hari ini</h2>
+    <p class="sub">Harga dalam rupiah per porsi. Tekan Tambah untuk memasukkan ke pesanan, lalu kirim lewat WhatsApp di bagian bawah.</p>
+    <div id="menu-root"></div>
+  </div>
+</section>
+ 
+<section class="order-wrap gut" id="pesanan">
+  <div class="in">
+    <div class="order">
+      <div>
+        <h2>Pesananmu</h2>
+        <ul id="lines"></ul>
+        <p class="empty" id="empty">Belum ada yang dipilih. Tambahkan menu di atas.</p>
+        <div class="sum"><span>Total</span><span class="num" id="total">Rp 0</span></div>
+        <p class="note">Ongkos antar belum termasuk.</p>
+      </div>
+      <div>
+        <label class="fld" for="nama"><span>Nama</span><input id="nama" type="text" autocomplete="name"></label>
+        <label class="fld" for="cara"><span>Cara terima</span>
+          <select id="cara"><option>Ambil sendiri</option><option>Antar, ongkos Rp 5.000</option></select></label>
+        <label class="fld" for="catatan"><span>Catatan</span><input id="catatan" type="text" placeholder="Misalnya sambal dipisah"></label>
+        <label class="fld" for="pratinjau"><span>Pesan yang akan dikirim</span><textarea id="pratinjau" rows="6" readonly></textarea></label>
+        <div class="acts">
+          <a class="btn btn-sambal" id="wa" target="_blank" rel="noopener noreferrer" aria-disabled="true">Buka WhatsApp</a>
+          <button class="btn btn-line" id="copy" type="button" disabled>Salin pesanan</button>
+        </div>
+        <p class="status" id="status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section class="story gut" id="cerita">
+  <div class="in story-grid">
+    <div>
+      <h2>Dapur menyala jam lima pagi</h2>
+      <p>Sambal diulek lebih dulu, baru ayam masuk wajan. Dengan urutan itu, pembeli yang datang jam sembilan tetap mendapat sambal yang baru diulek, bukan sisa kemarin.</p>
+      <p>Kami masak dalam jumlah yang bisa habis hari itu juga. Kalau menu favoritmu sudah habis, kami bilang di WhatsApp sebelum kamu berangkat.</p>
+    </div>
+    <dl class="clock">
+      <div><dt>05.00</dt><dd>Sambal terasi diulek dan bumbu ayam dimasukkan</dd></div>
+      <div><dt>07.00</dt><dd>Ayam, tempe, dan tahu masuk penggorengan</dd></div>
+      <div><dt>10.30</dt><dd>Nasi tanak kedua untuk makan siang</dd></div>
+      <div><dt>16.00</dt><dd>Sayur asem dan urap dimasak ulang untuk makan malam</dd></div>
+    </dl>
+  </div>
+</section>
+</main>
+ 
+<footer class="gut">
+  <div class="in foot">
+    <div>
+      <h3>Dapur sak Menawai</h3>
+      <p>Pesanan diproses setelah dikonfirmasi lewat WhatsApp.</p>
+    </div>
+    <dl>
+      <dt>Alamat</dt><dd>Jl. Menawai Lingkau</dd>
+      <dt>WhatsApp</dt><dd>085754233274</dd>
+    </dl>
+    <dl>
+      <dt>Jam buka</dt><dd>Setiap hari, 07.00 sampai 20.00</dd>
+      <dt>Pesan antar</dt><dd>Radius 17 km dari dapur</dd>
+    </dl>
+  </div>
+</footer>
+ 
+<div class="bar" id="bar" hidden>
+  <div class="tot"><span id="bar-count">0 item</span><b id="bar-total">Rp 0</b></div>
+  <a class="btn btn-kunyit" href="#pesanan">Lihat pesanan</a>
+</div>
+ 
+<script>
+/* Ganti nomor WhatsApp (format internasional, tanpa +) dan nama usaha di sini. */
+const WA = "085754233274";
+const SHOP = "ito mualang";
+ 
+const groups = ["Paket nasi", "Lauk tambahan", "Sayur", "Minuman"];
+const items = [
+  {id:"campur", g:0, n:"Nasi campur Ibu", d:"Nasi, ayam suwir, telur balado, tempe orek, sayur", p:22000},
+  {id:"penyet", g:0, n:"Nasi ayam penyet", d:"Ayam goreng digeprek, sambal terasi, lalapan", p:24000},
+  {id:"nila",   g:0, n:"Nasi ikan nila goreng", d:"Ikan nila garing, sambal matah, lalapan", p:26000},
+  {id:"soto",   g:0, n:"Soto ayam", d:"Kuah kuning, suwiran ayam, soun, telur rebus, nasi", p:20000},
+  {id:"balado", g:1, n:"Telur balado", d:"Sebutir telur, sambal balado", p:6000},
+  {id:"tempe",  g:1, n:"Tempe goreng", d:"Dua potong, tepung tipis", p:4000},
+  {id:"bacem",  g:1, n:"Tahu bacem", d:"Dua potong, manis gurih", p:4000},
+  {id:"perkedel", g:1, n:"Perkedel kentang", d:"Dua buah", p:5000},
+  {id:"sambal", g:1, n:"Sambal terasi ekstra", d:"Satu wadah kecil", p:2000},
+  {id:"asem",   g:2, n:"Sayur asem", d:"Jagung, labu siam, kacang panjang, asam jawa", p:8000},
+  {id:"urap",   g:2, n:"Urap sayur", d:"Bayam, kol, kacang panjang, kelapa bumbu", p:7000},
+  {id:"teh",    g:3, n:"Es teh manis", d:"Teh tubruk, gula secukupnya", p:5000},
+  {id:"jeruk",  g:3, n:"Es jeruk", d:"Jeruk peras", p:7000},
+  {id:"kelapa", g:3, n:"Es kelapa muda", d:"Daging kelapa, sirup, es batu", p:12000}
+];
+const qty = {};
+const $ = id => document.getElementById(id);
+const fmt = n => "Rp " + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+ 
+function ctlHTML(it){
+  const q = qty[it.id] || 0;
+  if(!q) return '<button type="button" class="add" data-act="inc" data-id="'+it.id+'" aria-label="Tambah '+it.n+' ke pesanan">Tambah</button>';
+  return '<div class="step" role="group" aria-label="Jumlah '+it.n+'">'
+    + '<button type="button" data-act="dec" data-id="'+it.id+'" aria-label="Kurangi '+it.n+'">−</button>'
+    + '<span>'+q+'</span>'
+    + '<button type="button" data-act="inc" data-id="'+it.id+'" aria-label="Tambah '+it.n+'">+</button></div>';
+}
+ 
+function buildMenu(){
+  $("menu-root").innerHTML = groups.map((g, gi) => {
+    const rows = items.filter(i => i.g === gi).map(i =>
+      '<li><div class="txt"><div class="name">'+i.n+'</div><div class="desc">'+i.d+'</div></div>'
+      + '<div class="buy"><span class="price">'+fmt(i.p)+'</span><div class="ctl" id="ctl-'+i.id+'">'+ctlHTML(i)+'</div></div></li>'
+    ).join("");
+    return '<div class="group"><h3>'+g+'</h3><ul class="items">'+rows+'</ul></div>';
+  }).join("");
+}
+ 
+function buildMsg(total){
+  const sel = items.filter(i => qty[i.id]);
+  const nama = $("nama").value.trim(), cat = $("catatan").value.trim();
+  return [
+    "Halo " + SHOP + ", saya mau pesan:",
+    ...sel.map(i => "- " + qty[i.id] + "x " + i.n + " (" + fmt(i.p * qty[i.id]) + ")"),
+    "Total: " + fmt(total) + " (belum termasuk ongkos antar)",
+    nama ? "Nama: " + nama : null,
+    "Cara terima: " + $("cara").value,
+    cat ? "Catatan: " + cat : null
+  ].filter(Boolean).join("\n");
+}
+ 
+function refresh(){
+  const sel = items.filter(i => qty[i.id]);
+  const count = sel.reduce((a, i) => a + qty[i.id], 0);
+  const total = sel.reduce((a, i) => a + qty[i.id] * i.p, 0);
+  $("lines").innerHTML = sel.map(i => '<li><span>'+qty[i.id]+' × '+i.n+'</span><span class="num">'+fmt(i.p*qty[i.id])+'</span></li>').join("");
+  $("empty").hidden = sel.length > 0;
+  $("total").textContent = fmt(total);
+  $("bar").hidden = count === 0;
+  $("bar-count").textContent = count + " item";
+  $("bar-total").textContent = fmt(total);
+  const msg = sel.length ? buildMsg(total) : "";
+  $("pratinjau").value = msg;
+  const wa = $("wa");
+  if(sel.length){ wa.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent(msg); wa.removeAttribute("aria-disabled"); }
+  else { wa.removeAttribute("href"); wa.setAttribute("aria-disabled", "true"); }
+  $("copy").disabled = !sel.length;
+}
+ 
+$("menu-root").addEventListener("click", e => {
+  const b = e.target.closest("button[data-act]");
+  if(!b) return;
+  const id = b.dataset.id, act = b.dataset.act;
+  qty[id] = Math.max(0, (qty[id] || 0) + (act === "inc" ? 1 : -1));
+  const it = items.find(i => i.id === id), box = $("ctl-" + id);
+  box.innerHTML = ctlHTML(it);
+  (box.querySelector('[data-act="'+act+'"]') || box.querySelector("button")).focus();
+  $("status").textContent = "";
+  refresh();
+});
+ 
+["nama", "cara", "catatan"].forEach(id => $(id).addEventListener("input", refresh));
+$("wa").addEventListener("click", e => { if($("wa").getAttribute("aria-disabled") === "true") e.preventDefault(); });
+$("copy").addEventListener("click", async () => {
+  const ta = $("pratinjau"), s = $("status");
+  try { await navigator.clipboard.writeText(ta.value); s.textContent = "Pesanan tersalin. Tempel di WhatsApp."; }
+  catch(err){ ta.focus(); ta.select(); s.textContent = "Teks sudah dipilih. Salin dengan Ctrl+C, atau tahan lama di layar ponsel."; }
+});
+ 
+buildMenu();
+refresh();
+</script>
